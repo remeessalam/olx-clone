@@ -19,15 +19,15 @@ function View() {
     <div className="viewParentDiv">
       <div className="imageShowDiv">
         <img
-          src={postDetails.url}
+          src={postDetails?postDetails.url:''}
           alt=""
         />
       </div>
       <div className="rightSection">
         <div className="productDetails">
-          <p>&#x20B9; {postDetails.price}</p>
-          <span>YAMAHA R15V3</span>
-          <p>Two Wheeler</p>
+          <p>&#x20B9; {postDetails?postDetails.price:''}</p>
+          <span>{postDetails?postDetails.name:''}</span>
+          <p>{postDetails?postDetails.category:''}</p>
           <span>Tue May 04 2021</span>
         </div>
        { userDetails && <div className="contactDetails">

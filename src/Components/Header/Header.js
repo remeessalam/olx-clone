@@ -14,7 +14,9 @@ function Header() {
   return (
     <div className="headerParentDiv">
       <div className="headerChildDiv">
-        <div className="brandName">
+        <div className="brandName" onClick={()=>{
+          history.push('/')
+        }}>
           <OlxLogo></OlxLogo>
         </div>
         <div className="placeSearch">
@@ -38,18 +40,22 @@ function Header() {
           <Arrow></Arrow>
         </div>
         <div className="loginPage">
-          <span>{user ? `Welcome ${user.displayName}` : 'Login'}</span>   
+          <span>{user ? `Welcome ${user.displayName}` : <p onClick={()=>{
+            history.push('/login')
+          }}>Login</p>}</span>   
           <hr />
         </div>
         {user &&<span onClick ={()=>{
           firebase.auth().signOut()
           history.push('/login')
         }}>Logout</span>}
-        <div className="sellMenu">
+        <div className="sellMenu" onClick ={()=>{
+          history.push('/create')
+        }}>
           <SellButton></SellButton>
           <div className="sellMenuContent">
             <SellButtonPlus></SellButtonPlus>
-            <span>SELL</span>
+            <span >SELL</span>
           </div>
         </div>
       </div>
